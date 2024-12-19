@@ -6,7 +6,8 @@ async function bootstrap() {
 
   const allowedOrigins = [
     'http://localhost:3000',
-    'http://localhost:4200' 
+    'http://localhost:4200',
+    'https://github.com/elianVillarroel/'
   ];
 
   app.enableCors({
