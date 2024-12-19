@@ -3,11 +3,11 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
   const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:4200',
-    'https://elianvillarroel.github.io/FRONTENDVFINAL/'
+    'https://elianvillarroel.github.io',
+    'https://elianvillarroel.github.io/FRONTENDVFINAL'
   ];
 
   app.enableCors({
@@ -18,8 +18,10 @@ async function bootstrap() {
         callback(new Error('No permitido por CORS'));
       }
     },
-    methods: 'GET,POST,PUT,DELETE,PATCH', // Métodos HTTP permitidos
-    credentials: true // Si necesitas cookies o cabeceras autorizadas
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type,Accept,Authorization,Access-Control-Allow-Origin',
+    credentials: true,
+    maxAge: 3600, // Tiempo de cache para pre-flight requests
   });
 
   await app.listen(3000);
