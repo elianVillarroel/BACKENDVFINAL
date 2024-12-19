@@ -38,6 +38,9 @@ import { PeticionesEntity } from './peticiones/peticiones.entity';
           PeticionesEntity
         ],
         synchronize: false,
+        extra: {
+          connectionLimit: 5,
+        },
         logging: true
       }),
       inject: [ConfigService],
